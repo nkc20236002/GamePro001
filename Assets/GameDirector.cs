@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameDirector : MonoBehaviour
 {
     GameObject TimeGauge;
-    GameObject meter;
+
 
     void Start()
     {
@@ -14,9 +14,6 @@ public class GameDirector : MonoBehaviour
     }
     public void DecreaseTime()
     {
-        Debug.Log("DecreaseTime");
         this.TimeGauge.GetComponent<Image>().fillAmount -= 0.1f;
-
-
     }
 }
