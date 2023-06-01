@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MeterManager : MonoBehaviour
+public class MeterController : MonoBehaviour
 {
-    GameObject Meter;
-    int score_num = 0; 
+    GameObject MeterGauge;
+    public float score = 0;
+
     void Start()
     {
-        this.Meter = GameObject.Find("MeterGauge");
+        this.MeterGauge = GameObject.Find("MeterGauge");
+        TextMeshProUGUI Meter = MeterGauge.GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
-        Text MeterGauge = Meter.GetComponent<Text>();
-        MeterGauge.text = score_num + "km";
+        TextMeshProUGUI Meter = MeterGauge.GetComponent<TextMeshProUGUI>();
+        score += 0.1f;
+        Meter.text = score.ToString("F1") + "km";
 
-        score_num += 1; 
     }
 }

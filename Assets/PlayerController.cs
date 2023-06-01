@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    Animator anim;
 
     void Start()
     {
         Application.targetFrameRate = 60;
+        this.anim = GetComponent<Animator>();
 
     }
 
     void Update()
     {
+        float y = Input.GetAxisRaw("Vertical");
+
+        if (y == 0)
+        {
+            anim.Play("Player");
+        }
+        else if (y == 1)
+        {
+            anim.Play("PlayerL");
+        }
+        else
+        {
+            anim.Play("PlayerR");
+        }
+
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(0, 0.08f, 0);
@@ -30,6 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(0.08f, 0, 0);
         }
+
     }
             
         
