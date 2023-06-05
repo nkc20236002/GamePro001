@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -47,6 +48,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.Translate(0.08f, 0, 0);
         }
+
+        if(transform.position.y < -3)
+        {
+            SceneManager.LoadScene("TitleScene");
+        }
+
 
     }
             
